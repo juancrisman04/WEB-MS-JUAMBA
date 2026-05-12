@@ -7370,7 +7370,7 @@ body {
   }
 
   .hero-agro__title {
-    max-width: min(17ch, calc(100vw - 2.6rem));
+    max-width: calc(100vw - 2.6rem);
     padding-inline: 0.16em;
     margin-inline: -0.16em 0;
     overflow: visible;
@@ -7393,6 +7393,10 @@ body {
   }
 
   .hero-agro__title-break--mobile {
+    display: block;
+  }
+
+  .hero-agro__title-break--end {
     display: none;
   }
 
