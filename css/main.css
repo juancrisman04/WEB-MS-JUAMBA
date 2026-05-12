@@ -6080,6 +6080,14 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
     will-change: transform, opacity;
   }
 
+  .team-card:hover {
+    transform: translateZ(0);
+  }
+
+  .team-card--mobile-enter {
+    animation: none;
+  }
+
   .team-card__photo {
     max-width: none;
   }

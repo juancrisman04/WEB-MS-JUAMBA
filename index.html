@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Mas Semillas</title>
@@ -1239,8 +1239,9 @@
         let teamDesktopTransitionLocked = false;
         let teamSwipeStartX = 0;
         let teamSwipeStartY = 0;
-        let teamSwipePointerId = null;
+        let teamSwipeActive = false;
         let teamSwipeMoved = false;
+        let teamMobileTransitionLocked = false;
 
         const getVisibleTeamCards = () => window.innerWidth <= 680 ? 1 : 4;
 
@@ -1342,8 +1343,13 @@
           const nextGroupIndex = (teamGroupIndex + direction + totalGroups) % totalGroups;
 
           if (getVisibleTeamCards() === 1) {
+            if (teamMobileTransitionLocked) return;
+            teamMobileTransitionLocked = true;
             teamGroupIndex = nextGroupIndex;
             renderTeamCarousel({ direction });
+            window.setTimeout(() => {
+              teamMobileTransitionLocked = false;
+            }, 360);
             return;
           }
 
@@ -1351,40 +1357,41 @@
         };
 
         const resetTeamSwipe = () => {
-          teamSwipePointerId = null;
+          teamSwipeActive = false;
           teamSwipeMoved = false;
         };
 
         const isMobileTeamCarousel = () => getVisibleTeamCards() === 1;
 
         const onTeamSwipeStart = (event) => {
-          if (!isMobileTeamCarousel() || (event.pointerType && event.pointerType !== 'touch' && event.pointerType !== 'pen')) return;
-          teamSwipePointerId = event.pointerId;
-          teamSwipeStartX = event.clientX;
-          teamSwipeStartY = event.clientY;
+          if (!isMobileTeamCarousel() || event.touches.length !== 1) return;
+          const touch = event.touches[0];
+          teamSwipeActive = true;
+          teamSwipeStartX = touch.clientX;
+          teamSwipeStartY = touch.clientY;
           teamSwipeMoved = false;
-          teamCarousel.setPointerCapture?.(event.pointerId);
         };
 
         const onTeamSwipeMove = (event) => {
-          if (teamSwipePointerId !== event.pointerId) return;
-          const deltaX = event.clientX - teamSwipeStartX;
-          const deltaY = event.clientY - teamSwipeStartY;
+          if (!teamSwipeActive || event.touches.length !== 1) return;
+          const touch = event.touches[0];
+          const deltaX = touch.clientX - teamSwipeStartX;
+          const deltaY = touch.clientY - teamSwipeStartY;
 
-          if (Math.abs(deltaX) > 10 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+          if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY) * 1.15) {
             teamSwipeMoved = true;
             event.preventDefault();
           }
         };
 
         const onTeamSwipeEnd = (event) => {
-          if (teamSwipePointerId !== event.pointerId) return;
-          const deltaX = event.clientX - teamSwipeStartX;
-          const deltaY = event.clientY - teamSwipeStartY;
-          const isHorizontalSwipe = Math.abs(deltaX) >= 42 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2;
+          if (!teamSwipeActive || event.changedTouches.length === 0) return;
+          const touch = event.changedTouches[0];
+          const deltaX = touch.clientX - teamSwipeStartX;
+          const deltaY = touch.clientY - teamSwipeStartY;
+          const isHorizontalSwipe = Math.abs(deltaX) >= 36 && Math.abs(deltaX) > Math.abs(deltaY) * 1.15;
           const didSwipeMove = teamSwipeMoved;
 
-          teamCarousel.releasePointerCapture?.(event.pointerId);
           resetTeamSwipe();
 
           if (!isHorizontalSwipe || !didSwipeMove) return;
@@ -1417,10 +1424,10 @@
         teamObserver.observe(teamPanel);
         teamPrevButton.addEventListener('click', () => moveTeamCarousel(-1));
         teamNextButton.addEventListener('click', () => moveTeamCarousel(1));
-        teamCarousel.addEventListener('pointerdown', onTeamSwipeStart);
-        teamCarousel.addEventListener('pointermove', onTeamSwipeMove);
-        teamCarousel.addEventListener('pointerup', onTeamSwipeEnd);
-        teamCarousel.addEventListener('pointercancel', resetTeamSwipe);
+        teamCarousel.addEventListener('touchstart', onTeamSwipeStart, { passive: true });
+        teamCarousel.addEventListener('touchmove', onTeamSwipeMove, { passive: false });
+        teamCarousel.addEventListener('touchend', onTeamSwipeEnd, { passive: true });
+        teamCarousel.addEventListener('touchcancel', resetTeamSwipe, { passive: true });
         window.addEventListener('resize', syncTeamCarouselMode);
       }
 
