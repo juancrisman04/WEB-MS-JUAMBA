@@ -1237,6 +1237,10 @@
         let teamDesktopSwapTimeout = null;
         let teamDesktopSwapResetTimeout = null;
         let teamDesktopTransitionLocked = false;
+        let teamSwipeStartX = 0;
+        let teamSwipeStartY = 0;
+        let teamSwipePointerId = null;
+        let teamSwipeMoved = false;
 
         const getVisibleTeamCards = () => window.innerWidth <= 680 ? 1 : 4;
 
@@ -1346,6 +1350,47 @@
           transitionDesktopTeamCarousel(nextGroupIndex);
         };
 
+        const resetTeamSwipe = () => {
+          teamSwipePointerId = null;
+          teamSwipeMoved = false;
+        };
+
+        const isMobileTeamCarousel = () => getVisibleTeamCards() === 1;
+
+        const onTeamSwipeStart = (event) => {
+          if (!isMobileTeamCarousel() || (event.pointerType && event.pointerType !== 'touch' && event.pointerType !== 'pen')) return;
+          teamSwipePointerId = event.pointerId;
+          teamSwipeStartX = event.clientX;
+          teamSwipeStartY = event.clientY;
+          teamSwipeMoved = false;
+          teamCarousel.setPointerCapture?.(event.pointerId);
+        };
+
+        const onTeamSwipeMove = (event) => {
+          if (teamSwipePointerId !== event.pointerId) return;
+          const deltaX = event.clientX - teamSwipeStartX;
+          const deltaY = event.clientY - teamSwipeStartY;
+
+          if (Math.abs(deltaX) > 10 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+            teamSwipeMoved = true;
+            event.preventDefault();
+          }
+        };
+
+        const onTeamSwipeEnd = (event) => {
+          if (teamSwipePointerId !== event.pointerId) return;
+          const deltaX = event.clientX - teamSwipeStartX;
+          const deltaY = event.clientY - teamSwipeStartY;
+          const isHorizontalSwipe = Math.abs(deltaX) >= 42 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2;
+          const didSwipeMove = teamSwipeMoved;
+
+          teamCarousel.releasePointerCapture?.(event.pointerId);
+          resetTeamSwipe();
+
+          if (!isHorizontalSwipe || !didSwipeMove) return;
+          moveTeamCarousel(deltaX < 0 ? 1 : -1);
+        };
+
         const syncTeamCarouselMode = () => {
           clearDesktopTeamSwap();
 
@@ -1372,6 +1417,10 @@
         teamObserver.observe(teamPanel);
         teamPrevButton.addEventListener('click', () => moveTeamCarousel(-1));
         teamNextButton.addEventListener('click', () => moveTeamCarousel(1));
+        teamCarousel.addEventListener('pointerdown', onTeamSwipeStart);
+        teamCarousel.addEventListener('pointermove', onTeamSwipeMove);
+        teamCarousel.addEventListener('pointerup', onTeamSwipeEnd);
+        teamCarousel.addEventListener('pointercancel', resetTeamSwipe);
         window.addEventListener('resize', syncTeamCarouselMode);
       }
 

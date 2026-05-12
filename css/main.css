@@ -5901,6 +5901,9 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
   align-items: center;
   justify-content: center;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .team-showcase__arrow svg {
@@ -6046,12 +6049,18 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
     overflow: visible;
     margin-top: 0rem;
     padding: 0 2rem;
+    touch-action: pan-y;
+    overscroll-behavior-x: contain;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .team-showcase__grid {
     grid-template-columns: repeat(1, minmax(0, 300px));
     justify-content: center;
     gap: 0;
+    touch-action: pan-y;
   }
 
   .team-card.is-active {
@@ -6065,6 +6074,10 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .team-card {
     max-width: 252px;
+    touch-action: pan-y;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform, opacity;
   }
 
   .team-card__photo {
