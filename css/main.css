@@ -5864,6 +5864,23 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
   }
 }
 
+@media (max-width: 980px) {
+  html.js-enabled .brands-strip__bar.reveal-on-scroll--impact,
+  html.js-enabled .brands-strip__bar.reveal-on-scroll--impact.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .brands-strip__bar.is-visible .brands-strip__callout,
+  .brands-strip__bar.is-visible .brands-strip__logo {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
 /* Team showcase */
 .team-showcase {
   position: relative;
