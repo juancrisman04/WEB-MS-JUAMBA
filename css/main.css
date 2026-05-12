@@ -7381,7 +7381,16 @@ body {
     animation: heroTitleInMobile 0.7s cubic-bezier(0.22, 1, 0.36, 1) 100ms both;
   }
 
+  .hero-agro__title-main {
+    display: inline-block;
+    white-space: nowrap;
+    padding-inline: 0.14em;
+    margin-inline: -0.14em 0;
+  }
+
   .hero-agro__title-accent {
+    display: inline-block;
+    white-space: nowrap;
     color: #f1c400;
     opacity: 0;
     transform: translate3d(0, 14px, 0);
@@ -7636,7 +7645,7 @@ body {
   }
 
   .hero-agro__title {
-    font-size: clamp(2.15rem, 7.2vw, 2.8rem);
+    font-size: clamp(1.55rem, 6.55vw, 2.25rem);
   }
 
   .hero-agro__subtitle {
@@ -7837,7 +7846,7 @@ body {
   }
 
   .hero-agro__title {
-    font-size: 2rem;
+    font-size: clamp(1.55rem, 7.1vw, 1.72rem);
   }
 
   .contact-mini h3 {
