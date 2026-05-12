@@ -5680,7 +5680,7 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
 .brands-strip__marquee::before,
 .brands-strip__marquee::after {
-  content: none;
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -5833,22 +5833,18 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .brands-strip__marquee::before,
   .brands-strip__marquee::after {
-    display: none;
+    display: block;
     width: 34px;
   }
 
   .brands-strip__marquee::before {
-    content: '';
-    display: block;
     left: 0;
-    width: clamp(82px, 18vw, 148px);
-    background: linear-gradient(150deg, #D2D755 0%, #f1c400 72%);
-    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: linear-gradient(90deg, #228848 0%, rgba(34, 136, 72, 0) 100%);
   }
 
   .brands-strip__marquee::after {
     right: 0;
-    background: none;
+    background: linear-gradient(270deg, #01361d 0%, rgba(1, 54, 29, 0) 100%);
   }
 }
 
@@ -5903,13 +5899,8 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .brands-strip__marquee::before,
   .brands-strip__marquee::after {
-    display: none;
-    width: 24px;
-  }
-
-  .brands-strip__marquee::before {
     display: block;
-    width: clamp(62px, 22vw, 92px);
+    width: 24px;
   }
 
   .brands-strip__logo {
