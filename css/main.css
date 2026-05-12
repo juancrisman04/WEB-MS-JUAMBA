@@ -2228,7 +2228,7 @@ section {
 }
 
 body {
-  background-color: #046A38;
+  background-color: #ffffff;
 }
 
 .bg-black {
@@ -7309,7 +7309,7 @@ body.menu-open .faq-bot {
 /* Keep the page canvas white so mobile browser overscroll/safe areas do not show green */
 html,
 body {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 /* Responsive hardening */
