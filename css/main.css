@@ -4503,7 +4503,12 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 .catalog-mini-hero__image {
   position: absolute;
   inset: -4px -4px -10px -4px;
-  background-image: url('../img/DJI_0156.jpg');
+  background-color: #123d28;
+  background-image: url('../img/catalog-hero-2400.jpg');
+  background-image: image-set(
+    url('../img/catalog-hero-1600.jpg') 1x,
+    url('../img/catalog-hero-2400.jpg') 2x
+  );
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
