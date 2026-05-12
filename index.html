@@ -726,42 +726,37 @@
 
       const nideraTitle = document.querySelector('[data-nidera-title]');
       if (nideraTitle && !nideraTitle.dataset.lettersReady) {
-        const shouldSkipNideraLetters = window.matchMedia('(max-width: 640px)').matches;
-        if (shouldSkipNideraLetters) {
-          nideraTitle.dataset.lettersReady = 'true';
-        } else {
-          const text = nideraTitle.textContent ?? '';
-          const fragment = document.createDocumentFragment();
-          const words = text.trim().split(/\s+/);
-          let letterIndex = 0;
+        const text = nideraTitle.textContent ?? '';
+        const fragment = document.createDocumentFragment();
+        const words = text.trim().split(/\s+/);
+        let letterIndex = 0;
 
-          words.forEach((word, wordIndex) => {
-            const wordWrap = document.createElement('span');
-            wordWrap.className = 'nidera-strip__title-word';
+        words.forEach((word, wordIndex) => {
+          const wordWrap = document.createElement('span');
+          wordWrap.className = 'nidera-strip__title-word';
 
-            for (const character of word) {
-              const letter = document.createElement('span');
-              letter.className = 'nidera-strip__title-letter';
-              letter.style.setProperty('--nidera-letter-delay', `${letterIndex * 16}ms`);
-              letter.textContent = character;
-              wordWrap.appendChild(letter);
-              letterIndex += 1;
-            }
+          for (const character of word) {
+            const letter = document.createElement('span');
+            letter.className = 'nidera-strip__title-letter';
+            letter.style.setProperty('--nidera-letter-delay', `${letterIndex * 16}ms`);
+            letter.textContent = character;
+            wordWrap.appendChild(letter);
+            letterIndex += 1;
+          }
 
-            fragment.appendChild(wordWrap);
+          fragment.appendChild(wordWrap);
 
-            if (wordIndex < words.length - 1) {
-              const spacer = document.createElement('span');
-              spacer.className = 'nidera-strip__title-space';
-              spacer.textContent = '\u00A0';
-              fragment.appendChild(spacer);
-            }
-          });
+          if (wordIndex < words.length - 1) {
+            const spacer = document.createElement('span');
+            spacer.className = 'nidera-strip__title-space';
+            spacer.textContent = '\u00A0';
+            fragment.appendChild(spacer);
+          }
+        });
 
-          nideraTitle.textContent = '';
-          nideraTitle.appendChild(fragment);
-          nideraTitle.dataset.lettersReady = 'true';
-        }
+        nideraTitle.textContent = '';
+        nideraTitle.appendChild(fragment);
+        nideraTitle.dataset.lettersReady = 'true';
       }
 
       // Hero counters
