@@ -1267,7 +1267,7 @@
               card.style.animationDelay = `${120 + visibleOrder * 150}ms`;
             }
 
-            if (isVisible && isMobileTeam) {
+            if (isVisible && isMobileTeam && direction !== 0) {
               card.style.setProperty('--team-mobile-enter-x', direction < 0 ? '-24px' : direction > 0 ? '24px' : '0px');
               void card.offsetWidth;
               card.classList.add('team-card--mobile-enter');

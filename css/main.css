@@ -6085,7 +6085,7 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
   }
 
   .team-card--mobile-enter {
-    animation: none;
+    animation: teamCardMobileSwap 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .team-card__photo {
@@ -6112,14 +6112,12 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 @keyframes teamCardMobileSwap {
   0% {
     opacity: 0;
-    transform: translate3d(var(--team-mobile-enter-x, 0), 10px, 0) scale(0.96);
-    filter: blur(4px);
+    transform: translate3d(var(--team-mobile-enter-x, 0), 0, 0);
   }
 
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
