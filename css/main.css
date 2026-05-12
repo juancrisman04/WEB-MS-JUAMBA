@@ -7393,6 +7393,20 @@ body {
 
 /* Mobile polish: tighter rhythm, stronger legibility */
 @media (max-width: 640px) {
+  .nidera-strip__title-letter,
+  .nidera-strip__title-space,
+  .nidera-strip__card.reveal-on-scroll.is-visible .nidera-strip__title-letter {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+    transition: none;
+  }
+
+  .nidera-strip__title-word {
+    white-space: normal;
+  }
+
   #services.story-cert .story-cert__wrap {
     transform: none;
   }
@@ -7431,12 +7445,25 @@ body {
   }
 
   #story.story-cert .story-cert__gallery-item--main {
-    transform: translate3d(-12px, 16px, 0) scale(0.99);
+    transform: none;
   }
 
   #story.story-cert .story-cert__gallery-item--top,
   #story.story-cert .story-cert__gallery-item--bottom {
-    transform: translate3d(12px, 14px, 0) scale(0.99);
+    transform: none;
+  }
+
+  #story.story-cert .reveal-on-scroll--empresa-media,
+  #story.story-cert .reveal-on-scroll--empresa-media.is-visible,
+  #story.story-cert .story-cert__gallery,
+  #story.story-cert .story-cert__gallery.is-ready,
+  #story.story-cert .story-cert__gallery .story-cert__gallery-frame,
+  #story.story-cert .story-cert__gallery .story-cert__gallery-image {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+    transition: none;
   }
 
   #story.story-cert .story-cert__badge-card {
