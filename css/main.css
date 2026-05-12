@@ -5680,7 +5680,7 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
 .brands-strip__marquee::before,
 .brands-strip__marquee::after {
-  content: '';
+  content: none;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -5833,7 +5833,7 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .brands-strip__marquee::before,
   .brands-strip__marquee::after {
-    display: block;
+    display: none;
     width: 34px;
   }
 
@@ -5899,7 +5899,7 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .brands-strip__marquee::before,
   .brands-strip__marquee::after {
-    display: block;
+    display: none;
     width: 24px;
   }
 
