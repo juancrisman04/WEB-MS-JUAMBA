@@ -5137,11 +5137,38 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
     gap: 0.65rem;
   }
 
-  .products-impact.reveal-on-scroll--impact,
-  .products-impact.reveal-on-scroll--impact.is-visible {
+  html.js-enabled .products-impact.reveal-on-scroll--impact {
+    opacity: 0;
+    transform: translate3d(0, 70px, 0) scale(0.94);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay);
+  }
+
+  html.js-enabled .products-impact.reveal-on-scroll--impact.is-visible {
     opacity: 1;
-    transform: none;
-    transition: none;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  html.js-enabled .products-impact.reveal-on-scroll--impact .products-impact__cta {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.js-enabled .products-impact.reveal-on-scroll--impact.is-visible .products-impact__cta {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  html.js-enabled .products-impact.reveal-on-scroll--impact.is-visible .products-impact__cta:nth-child(1) {
+    transition-delay: 120ms;
+  }
+
+  html.js-enabled .products-impact.reveal-on-scroll--impact.is-visible .products-impact__cta:nth-child(2) {
+    transition-delay: 240ms;
   }
 
   .products-featured__body {
