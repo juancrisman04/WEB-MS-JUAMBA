@@ -2592,7 +2592,7 @@ body {
 
 @keyframes heroAgroMobileDrift {
   0% {
-    background-position: 86% center;
+    background-position: 82% center;
   }
   100% {
     background-position: 52% center;
@@ -2739,7 +2739,7 @@ body {
   .hero-agro {
     padding: 8rem 1.1rem 4.6rem;
     background-size: cover;
-    background-position: 86% center;
+    background-position: 82% center;
     animation: heroAgroMobileDrift 52s ease-in-out infinite alternate;
   }
 
