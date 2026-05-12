@@ -2309,8 +2309,12 @@ body {
   align-items: center;
   overflow: hidden;
   padding: 8.5rem 1.5rem 6.3rem;
-  background-color: transparent;
-  background-image: url('../img/DJI_0040.jpg');
+  background-color: #123d28;
+  background-image: url('../img/hero-principal-2400.jpg');
+  background-image: image-set(
+    url('../img/hero-principal-1600.jpg') 1x,
+    url('../img/hero-principal-2400.jpg') 2x
+  );
   background-size: cover;
   background-position: 54% center;
   background-repeat: no-repeat;
@@ -7611,6 +7615,7 @@ body {
     min-height: 100svh;
     min-height: 100dvh;
     padding: 7rem 0.95rem 4.8rem;
+    background-image: url('../img/hero-principal-1600.jpg');
   }
 
   .hero-agro__badge {
