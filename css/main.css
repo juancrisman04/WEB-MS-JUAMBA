@@ -7370,42 +7370,23 @@ body {
   }
 
   .hero-agro__title {
-    max-width: calc(100vw - 2.6rem);
-    padding-inline: 0.16em;
-    margin-inline: -0.16em 0;
-    overflow: visible;
+    max-width: 18ch;
     filter: none;
     transform: translate3d(0, 14px, 0);
     letter-spacing: -0.04em;
-    line-height: 1.08;
     animation: heroTitleInMobile 0.7s cubic-bezier(0.22, 1, 0.36, 1) 100ms both;
   }
 
-  .hero-agro__title-main {
-    display: inline-block;
-    white-space: nowrap;
-    padding-inline: 0.14em;
-    margin-inline: -0.14em 0;
-  }
-
   .hero-agro__title-accent {
-    display: inline-block;
-    white-space: nowrap;
     color: #f1c400;
     opacity: 0;
     transform: translate3d(0, 14px, 0);
     filter: none;
     letter-spacing: inherit;
-    padding-inline: 0.12em;
-    margin-inline: -0.12em 0;
     animation: heroTitleInMobile 0.7s cubic-bezier(0.22, 1, 0.36, 1) 220ms both;
   }
 
   .hero-agro__title-break--mobile {
-    display: block;
-  }
-
-  .hero-agro__title-break--end {
     display: none;
   }
 
@@ -7645,7 +7626,7 @@ body {
   }
 
   .hero-agro__title {
-    font-size: clamp(1.55rem, 6.55vw, 2.25rem);
+    font-size: clamp(2.15rem, 7.2vw, 2.8rem);
   }
 
   .hero-agro__subtitle {
@@ -7846,7 +7827,7 @@ body {
   }
 
   .hero-agro__title {
-    font-size: clamp(1.55rem, 7.1vw, 1.72rem);
+    font-size: 2rem;
   }
 
   .contact-mini h3 {
