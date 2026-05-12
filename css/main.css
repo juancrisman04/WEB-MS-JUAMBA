@@ -5341,12 +5341,29 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
     min-height: 0;
   }
 
+  .catalog-page--agro .catalog-item {
+    background: #ffffff;
+    border: 1.5px solid #f1c400;
+    border-radius: 1.35rem;
+    overflow: hidden;
+  }
+
   .catalog-item__img {
     height: 180px;
   }
 
+  .catalog-page--agro .catalog-item__img {
+    border-radius: 0;
+  }
+
   .catalog-item__body {
     padding: 0.95rem 0.9rem 1rem;
+  }
+
+  .catalog-page--agro .catalog-item__body {
+    background: #ffffff;
+    border: 0;
+    min-height: 0;
   }
 
   .catalog-item__body h3 {
@@ -5519,6 +5536,10 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .catalog-item__img {
     height: 210px;
+  }
+
+  .catalog-page--agro .catalog-item {
+    border-radius: 1.4rem;
   }
 
   .catalog-item__body h3 {
