@@ -6155,8 +6155,8 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 }
 
 .team-card__contact a {
-  color: #334155;
-  font-size: 0.82rem;
+  color: #000000;
+  font-size: 0.8rem;
   line-height: 1.28;
   font-weight: 600;
   text-decoration: none;
@@ -6166,6 +6166,14 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
 .team-card__contact a:hover {
   color: #046A38;
+}
+
+.team-card__contact a[href^="tel:"] {
+  font-size: 1rem;
+}
+
+.team-card__contact a[href^="mailto:"] {
+  font-size: 0.8rem;
 }
 
 @media (max-width: 680px) {
@@ -6244,6 +6252,14 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .team-card__contact a {
     font-size: 0.78rem;
+  }
+
+  .team-card__contact a[href^="tel:"] {
+    font-size: 1rem;
+  }
+
+  .team-card__contact a[href^="mailto:"] {
+    font-size: 0.8rem;
   }
 }
 
