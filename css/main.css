@@ -6146,6 +6146,28 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
   font-weight: 500;
 }
 
+.team-card__contact {
+  display: grid;
+  gap: 0.22rem;
+  margin-top: 0.72rem;
+  padding-top: 0.72rem;
+  border-top: 1px solid rgba(4, 106, 56, 0.16);
+}
+
+.team-card__contact a {
+  color: #334155;
+  font-size: 0.82rem;
+  line-height: 1.28;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.22s ease;
+}
+
+.team-card__contact a:hover {
+  color: #046A38;
+}
+
 @media (max-width: 680px) {
   .team-showcase {
     padding: 3.4rem 0.9rem 6.6rem;
@@ -6213,6 +6235,15 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
 
   .team-card__role {
     min-height: 2.7em;
+  }
+
+  .team-card__contact {
+    margin-top: 0.64rem;
+    padding-top: 0.64rem;
+  }
+
+  .team-card__contact a {
+    font-size: 0.78rem;
   }
 }
 
