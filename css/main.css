@@ -6669,6 +6669,7 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
   width: 100%;
   height: 350px;
   display: block;
+  border: 0;
   border-radius: 0.9rem;
   object-fit: cover;
   transform: scale(1);
