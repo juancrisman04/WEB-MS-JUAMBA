@@ -6146,6 +6146,34 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
   font-weight: 500;
 }
 
+.team-card__role--rotating {
+  display: grid;
+  align-items: center;
+  min-height: 1.35em;
+}
+
+.team-card__role-text {
+  grid-area: 1 / 1;
+  display: block;
+  will-change: opacity, transform;
+}
+
+.team-card__role-text--primary {
+  animation: teamRolePrimary 2.28s ease forwards;
+}
+
+.team-card__role-text--secondary {
+  opacity: 0;
+  transform: translateY(0.45rem);
+  animation: teamRoleSecondary 2.28s ease 2s forwards;
+}
+
+.team-card__role-text--tertiary {
+  opacity: 0;
+  transform: translateY(0.45rem);
+  animation: teamRoleTertiary 0.56s ease 4s forwards;
+}
+
 .team-card__contact {
   display: grid;
   gap: 0.22rem;
@@ -6287,17 +6315,69 @@ html.js-enabled .nidera-service-spotlight__board.reveal-on-scroll--services.is-v
   }
 }
 
+@keyframes teamRolePrimary {
+  0%,
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-0.45rem);
+  }
+}
+
+@keyframes teamRoleSecondary {
+  0% {
+    opacity: 0;
+    transform: translateY(0.45rem);
+  }
+
+  24%,
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-0.45rem);
+  }
+}
+
+@keyframes teamRoleTertiary {
+  0% {
+    opacity: 0;
+    transform: translateY(0.45rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .team-showcase,
   .team-showcase::before,
   .team-showcase::after,
   .team-showcase__grid,
   .team-showcase__panel.is-visible .team-card,
-  .team-card--mobile-enter {
+  .team-card--mobile-enter,
+  .team-card__role-text {
     animation: none;
     transition: none;
     opacity: 1;
     transform: none;
+  }
+
+  .team-card__role--rotating {
+    display: block;
+  }
+
+  .team-card__role-text + .team-card__role-text {
+    margin-top: 0.18rem;
   }
 }
 

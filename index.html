@@ -196,7 +196,7 @@
             <p class="hero-agro__highlight-label">Semillas oficiales</p>
           </article>
           <article class="hero-agro__highlight-card">
-            <p class="hero-agro__highlight-value" data-count-target="500" data-count-prefix="+" data-count-suffix="">+0</p>
+            <p class="hero-agro__highlight-value" data-count-target="300" data-count-prefix="+" data-count-suffix="">+0</p>
             <p class="hero-agro__highlight-label">Clientes Activos</p>
           </article>
         </div>
@@ -253,7 +253,7 @@
               <img src="img/galpon mas semillas.png" alt="Vista panorámica de lotes y campo" class="story-cert__gallery-image" loading="eager" fetchpriority="high" decoding="async">
             </div>
             <div class="story-cert__gallery-frame story-cert__gallery-item story-cert__gallery-item--bottom">
-              <img src="img/foto pala campo.jpg" alt="Trabajo técnico en campo al atardecer" class="story-cert__gallery-image" loading="eager" fetchpriority="high" decoding="sync">
+              <img src="img/chata mas semillas.jpg" alt="Chata de Mas Semillas en el campo" class="story-cert__gallery-image" loading="eager" fetchpriority="high" decoding="sync">
             </div>
           </div>
         </div>
@@ -434,7 +434,11 @@
             <article class="team-card is-active">
               <div class="team-card__photo" style="background-image:url('imgequipo/julieta cejas.jpg');"></div>
               <h3>Julieta Cejas</h3>
-              <p class="team-card__role">Atención Administrativa</p>
+              <p class="team-card__role team-card__role--rotating" aria-label="Atención Administrativa. Responsable de canje de cereal. Atención a proveedores">
+                <span class="team-card__role-text team-card__role-text--primary">Atención Administrativa</span>
+                <span class="team-card__role-text team-card__role-text--secondary">Responsable de canje de cereal</span>
+                <span class="team-card__role-text team-card__role-text--tertiary">Atención a proveedores</span>
+              </p>
               <div class="team-card__contact" aria-label="Datos de contacto de Julieta Cejas">
                 <a href="tel:+5493416567901">+54 9 3416 56-7901</a>
                 <a href="mailto:julieta.cejas@massemillaseinsumos.com.ar">julieta.cejas@massemillaseinsumos.com.ar</a>
@@ -600,7 +604,7 @@
             </svg>
           </div>
           <h3>EMAIL</h3>
-          <p class="contact-mini__strong">massemillaseinsumos.com.ar</p>
+          <p class="contact-mini__strong">contacto@massemillaseinsumos.com.ar</p>
           <p class="contact-mini__muted">Atención Personalizada</p>
         </article>
 
@@ -1365,7 +1369,7 @@
             const totalGroups = getTotalGroups();
             const nextGroupIndex = (teamGroupIndex + 1) % totalGroups;
             transitionDesktopTeamCarousel(nextGroupIndex);
-          }, 5000);
+          }, 6000);
         };
 
         const stopTeamRotation = () => {
